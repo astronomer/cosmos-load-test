@@ -7,6 +7,12 @@ union all
 
                     select
                         *
-                    from {{ ref('layer_2_model_19') }}
+                    from {{ ref('layer_2_model_71') }}
+                    
+union all
+
+                    select
+                        *
+                    from {{ ref('layer_2_model_88') }}
                     
 limit 42

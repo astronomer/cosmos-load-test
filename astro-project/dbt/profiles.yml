@@ -1,0 +1,11 @@
+default:
+  outputs:
+    dev:
+      dbname: "postgres"
+      host: "host.docker.internal"
+      pass: "postgres"
+      port: 54320
+      schema: "public"
+      type: postgres
+      user: "postgres"
+  target: dev

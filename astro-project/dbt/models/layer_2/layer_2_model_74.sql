@@ -1,12 +1,18 @@
 {{ config(schema = 'layer_2') }}
                     select
                         *
-                    from {{ ref('layer_1_model_181') }}
+                    from {{ ref('layer_1_model_9') }}
                     
 union all
 
                     select
                         *
-                    from {{ ref('layer_1_model_85') }}
+                    from {{ ref('layer_1_model_115') }}
+                    
+union all
+
+                    select
+                        *
+                    from {{ ref('layer_1_model_14') }}
                     
 limit 74

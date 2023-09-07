@@ -50,12 +50,19 @@ if __name__ == "__main__":
     project_dir = args.project_dir
 
     # calculate how many models per layer
-    # this is a tree-like structure, where layer 0 has n/2 models, layer 1 has n/4 models, etc.
-    # the last layer will have 1 model
-    models_per_layer = [model_count // (2 ** (i + 1)) for i in range(layer_count)]
+    # this is a tree-like structure, where layer 0 has n models, layer 1 has 2n, layer 2 has 3n, etc
+    models_per_layer = []
+
+    n = model_count / sum([i for i in range(layer_count + 1)])
+
+    for i in range(layer_count):
+        models_per_layer.append(int(round(n * (i + 1), 0)))
+
+    models_per_layer.reverse()
 
     print(f"Generating {model_count} models in {layer_count} layers")
     print(f"Models per layer: {models_per_layer}")
+    print(f"Total models: {sum(models_per_layer)}")
 
     # before anything, clean the seeds and models folders
     import shutil
